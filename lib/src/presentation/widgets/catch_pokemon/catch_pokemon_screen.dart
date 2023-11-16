@@ -16,7 +16,7 @@ class CatchPokemonScreen extends GetView<GetCatchPokemonScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    final debouncer = AppDebounce(milliseconds: 1000);
+    final appDebouncer = AppDebounce(milliseconds: 1000);
 
     return GetX<GetCatchPokemonScreenController>(
       init: controller,
@@ -35,7 +35,7 @@ class CatchPokemonScreen extends GetView<GetCatchPokemonScreenController> {
                             .autoScrollController.value?.position.pixels ==
                         getCatchPokemonScreenController.autoScrollController
                             .value?.position.maxScrollExtent) {
-                      debouncer.run(() => controller.fetchNextPokemonList());
+                      appDebouncer.run(() => controller.fetchNextPokemonList());
                     }
                   }
                   return true;
